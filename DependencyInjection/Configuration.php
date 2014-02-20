@@ -1,6 +1,6 @@
 <?php
 
-namespace Seo\WhoopsBundle\DependencyInjection;
+namespace Am\WhoopsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,11 +18,14 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('seo_whoops');
-
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode = $treeBuilder->root('am_whoops');
+        $rootNode
+            ->children()
+                ->scalarNode('resources_path')
+                    ->cannotBeEmpty()
+                    ->defaultValue('%kernel.root_dir%/../web/bundles/amwhoops')
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }
