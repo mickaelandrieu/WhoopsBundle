@@ -5,13 +5,15 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="seo_whoops.provider.class">Seo\WhoopsBundle\Provider\WhoopsProvider</parameter>
+        <parameter key="am_whoops.provider.class">Am\WhoopsBundle\Provider\WhoopsProvider</parameter>
     </parameters>
 
     <services>
-        <service id="seo_whoops.run" class="%seo_whoops.provider.class%" public="false" />
-        <service id="kernel.listener.seo_whoops_provider" class="Seo\WhoopsBundle\EventListener\ExceptionListener">
-            <argument type="service" id="seo_whoops.run" />
+        <service id="am_whoops.run" class="%am_whoops.provider.class%" public="false">
+            <argument type="string">%am_whoops.resources_path%</argument>
+        </service>
+        <service id="kernel.listener.am_whoops_provider" class="Am\WhoopsBundle\EventListener\ExceptionListener">
+            <argument type="service" id="am_whoops.run" />
             <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException"/>
         </service>
     </services>
