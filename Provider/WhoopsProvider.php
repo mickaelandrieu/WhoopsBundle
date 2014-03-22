@@ -28,6 +28,8 @@ class WhoopsProvider
         ));
         $symfonyHandler->setResourcesPath($this->resourcesPath);
         $whoops->pushHandler($symfonyHandler);
+        $whoops->writeToOutput(false);
+        $whoops->allowQuit(false);
         $whoops->register();
 
         return $whoops;

@@ -27,6 +27,6 @@ class ExceptionListener
         $event->setResponse(new Response($whoopsResponse));
 
         $filterEvent = new FilterResponseEvent($event->getKernel(), $event->getRequest(), $event->getRequestType(), $event->getResponse());
-        $event->getDispatcher()->dispatch(KernelEvents::TERMINATE, $filterEvent);
+        $event->getDispatcher()->dispatch(KernelEvents::RESPONSE, $filterEvent);
     }
 }
