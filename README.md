@@ -70,4 +70,3 @@ related to this roadmap:
 * Allow user to create his own Handlers
 * Update whoops library to 1.1 when tagged to stable
 * Create symfony-whoops-edition to have a demo website
-* The web debug toolbar should be available when an exception is thrown
