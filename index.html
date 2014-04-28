@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Whoopsbundle by mickaelandrieu</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mickaelandrieu/WhoopsBundle">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mickaelandrieu/WhoopsBundle/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mickaelandrieu/WhoopsBundle/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Whoopsbundle</h1>
+          <p>A simple Symfony 2 implementation of Whoops debug library (http://filp.github.io/whoops/)</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mickaelandrieu">mickaelandrieu</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="whoopsbundle" class="anchor" href="#whoopsbundle"><span class="octicon octicon-link"></span></a>WhoopsBundle</h1>
+
+<p>Symfony 2 implementation of debugguer library Whoops</p>
+
+<p><img src="http://i.imgur.com/7F8aIj6.png" alt=""></p>
+
+<p><a href="https://travis-ci.org/mickaelandrieu/WhoopsBundle"><img src="https://travis-ci.org/mickaelandrieu/WhoopsBundle.svg?branch=master" alt="Build Status"></a>
+<a href="https://insight.sensiolabs.com/projects/08dfbabf-d1e3-4d0d-abef-0fe0668a0218"><img src="https://insight.sensiolabs.com/projects/08dfbabf-d1e3-4d0d-abef-0fe0668a0218/small.png" alt="SensioLabsInsight"></a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION</h2>
+
+<p>As usual, there is few steps required to install this bundle:</p>
+
+<ol>
+<li>Add this bundle to your project as a composer dependency:</li>
+</ol><div class="highlight highlight-javascript"><pre>    <span class="c1">// composer.json</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="nx">require</span><span class="o">-</span><span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+            <span class="s2">"mickaelandrieu/whoops-bundle"</span><span class="o">:</span> <span class="s2">"dev-master"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<ol>
+<li>Add this bundle to your application kernel:</li>
+</ol><div class="highlight highlight-php"><pre>    <span class="c1">// app/AppKernel.php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEnvironment</span><span class="p">(),</span> <span class="k">array</span><span class="p">(</span><span class="s1">'dev'</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="nv">$bundles</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Am\WhoopsBundle\AmWhoopsBundle</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$bundles</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>That's all ! Enjoy the new theme we've created for Symfony 2.</p>
+
+<p>Note: this bundle is compatible with <a href="https://github.com/gnugat/GnugatWizardBundle">GnugatWizardBunde</a></p>
+
+<ol>
+<li>Configure Path to the resources for theming (non required)</li>
+</ol><p>You can as well create your own theme, by create a folder in your application
+with the files you want to override: you will essentialy override the css styles
+and need to create a file <code>whoops.base.css</code> that you need to locate in an css folder.
+For now, <code>Whoops</code> is still a WIP and you have to follow this to make your own theme.</p>
+
+<p>You can override as well all the files loaded by <code>Whoops</code> library for the <code>PrettyPageHandler</code>
+used here:</p>
+
+<ul>
+<li>pretty-page.css</li>
+<li>pretty-template.php</li>
+</ul><p>Then, configure the bundle in your <code>config.yml</code> file:</p>
+
+<pre><code>am_whoops:
+    resources_path: "%kernel.root_dir%/../web/bundles/amwhoops"
+</code></pre>
+
+<ol>
+<li>How to contribute</li>
+</ol><p>This bundle is now fully unit-tested, I will accept only PR with tests
+related to this roadmap:</p>
+
+<ul>
+<li>Allow user to create his own Handlers</li>
+<li>Update whoops library to 1.1 when tagged to stable</li>
+<li>Create symfony-whoops-edition to have a demo website</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
