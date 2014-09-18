@@ -21,7 +21,7 @@ As usual, there is few steps required to install this bundle:
         // ...
         require-dev: {
             // ...
-            "mickaelandrieu/whoops-bundle": "dev-master"
+            "mickaelandrieu/whoops-bundle": "1.0.1"
         }
     }
 ```
