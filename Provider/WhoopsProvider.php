@@ -37,7 +37,7 @@ class WhoopsProvider
 
     private function hasSession($boolean)
     {
-        return $boolean == true ? 'true' : 'false';
+        return $boolean === true ? 'true' : 'false';
     }
 
     private function getSessionStatus($statusCode)
